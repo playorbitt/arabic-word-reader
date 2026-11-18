@@ -3,7 +3,9 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "transcribe": "node scripts/transcribe.mjs"
+    "transcribe": "node scripts/transcribe.mjs",
+    "check": "node scripts/check-install.mjs",
+    "test": "node --test"
   },
   "dependencies": {
     "@tilawa/core": "0.4.0",

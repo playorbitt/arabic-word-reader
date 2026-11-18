@@ -27,10 +27,4 @@ The current browser previews were generated from the Alfiyyah and al-ʿAqīdah a
 
 The reader code is MIT-licensed. The tested Zipformer model and its derived artifacts are under Quran-Lab NPL-1.2. That license permits free use and free hosting, requires derivatives to retain NPL-1.2, and prohibits charging for the model or a feature it powers. See `THIRD_PARTY_NOTICES.md`.
 
-## Sources used in the experiments
-
-- Tilawa: https://github.com/yazinsai/tilawa
-- Shamela Alfiyyah edition: https://shamela.ws/book/8522
-- Kutub al-ʿAqīdah edition: https://kutub.io/en/book/21523/1
-- IslamHouse Alfiyyah audio listing: https://islamhouse.com/ar/author/2794285
 

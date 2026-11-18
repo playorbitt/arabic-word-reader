@@ -1,0 +1,13 @@
+{
+  "name": "arabic-word-sync-reader",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "transcribe": "node scripts/transcribe.mjs"
+  },
+  "dependencies": {
+    "@tilawa/core": "0.4.0",
+    "onnxruntime-node": "1.31.1"
+  }
+}
+

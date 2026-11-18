@@ -11,7 +11,7 @@
       "text": "https://cdn.jsdelivr.net/gh/playorbitt/arabic-word-reader@main/books/aqidah-tahawiyyah.json",
       "timings": "https://cdn.jsdelivr.net/gh/playorbitt/arabic-word-reader@main/timings/aqidah-tahawiyyah.json",
       "sync": "word",
-      "audio": null,
+      "audio": "https://github.com/playorbitt/arabic-word-reader/releases/download/Audios/ar_Al3qedh_AlT7aweh_AlAnsaree.mp3",
       "license": "See source notices",
       "attribution": "Arabic text and timing export prepared for review"
     },
@@ -22,7 +22,7 @@
       "text": "https://cdn.jsdelivr.net/gh/playorbitt/arabic-word-reader@main/books/alfiyyah-ibn-malik.json",
       "timings": "https://cdn.jsdelivr.net/gh/playorbitt/arabic-word-reader@main/timings/alfiyyah-ibn-malik.json",
       "sync": "word",
-      "audio": null,
+      "audio": "https://github.com/playorbitt/arabic-word-reader/releases/download/Audios/ar_Alfeyyat_Ibn_Malek_Nashmi.mp3",
       "license": "See source notices",
       "attribution": "Arabic text and timing export prepared for review"
     }

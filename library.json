@@ -3,5 +3,28 @@
   "version": 1,
   "generatedAt": "2026-11-18",
   "repository": "https://github.com/playorbitt/arabic-word-reader",
-  "books": []
+  "books": [
+    {
+      "id": "aqidah-tahawiyyah",
+      "titleArabic": "العقيدة الطحاوية",
+      "titleEnglish": "Al-ʿAqīdah al-Ṭaḥāwiyyah",
+      "text": "https://cdn.jsdelivr.net/gh/playorbitt/arabic-word-reader@main/books/aqidah-tahawiyyah.json",
+      "timings": "https://cdn.jsdelivr.net/gh/playorbitt/arabic-word-reader@main/timings/aqidah-tahawiyyah.json",
+      "sync": "word",
+      "audio": null,
+      "license": "See source notices",
+      "attribution": "Arabic text and timing export prepared for review"
+    },
+    {
+      "id": "alfiyyah-ibn-malik",
+      "titleArabic": "ألفية ابن مالك",
+      "titleEnglish": "Alfiyyat Ibn Mālik",
+      "text": "https://cdn.jsdelivr.net/gh/playorbitt/arabic-word-reader@main/books/alfiyyah-ibn-malik.json",
+      "timings": "https://cdn.jsdelivr.net/gh/playorbitt/arabic-word-reader@main/timings/alfiyyah-ibn-malik.json",
+      "sync": "word",
+      "audio": null,
+      "license": "See source notices",
+      "attribution": "Arabic text and timing export prepared for review"
+    }
+  ]
 }

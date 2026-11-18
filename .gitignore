@@ -1,0 +1,12 @@
+node_modules/
+cache/
+local-data/
+*.mp3
+*.wav
+*.onnx
+*.html
+*.jsonl
+.env
+.env.*
+!.env.example
+

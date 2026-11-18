@@ -1,35 +1,36 @@
-# Arabic Word Reader
+# Arabic Word-Sync Reader
 
-Portable Arabic text/audio synchronization assets for hadith.to and other readers.
+An offline-first reader that aligns a recorded Arabic reading with a supplied Arabic text and highlights the text word by word during playback.
 
-## Catalog
+The repository contains the reader pipeline and its export format. It does not contain recordings, model weights, or copied book editions. Supply those locally and keep their separate terms with the source materials.
 
-The public catalog is [library.json](./library.json). It is intentionally small and stable so a website can load it directly from GitHub or jsDelivr:
+## What it does
 
-`https://cdn.jsdelivr.net/gh/playorbitt/arabic-word-reader@main/library.json`
+- accepts 16 kHz mono WAV audio through the Tilawa streaming engine
+- emits decoded Arabic tokens with audio-clock positions
+- aligns those tokens to supplied Arabic words
+- exports a JSON timing file for a browser reader
+- preserves uncertain words so the UI can mark them for review
 
-Each book entry may provide:
+## Local setup
 
-- `text`: Arabic text or structured token data
-- `timings`: word-level timing JSON
-- `audio`: an authorized MP3/OGG URL
-- `chapters`: chapter/part navigation data
-- `sync`: `word`, `sentence`, or `none`
-- `license` and `attribution`
-
-Audio should only be added when redistribution is authorized. Large audio files should use Git LFS, Releases, or an authorized CDN; keep alignment JSON and metadata in this repository.
-
-## Timing shape
-
-A timing sidecar should contain a list of tokens with stable IDs:
-
-```json
-{
-  "schema": "arabic-word-sync.v1",
-  "bookId": "example",
-  "audio": "https://...",
-  "tokens": [
-    { "id": "w-0001", "text": "قال", "start": 0.12, "end": 0.48 }
-  ]
-}
+```powershell
+npm install
+node scripts/transcribe.mjs path/to/recording.wav path/to/text.json output/timings.json
 ```
+
+`text.json` should contain an object with a `words` array. Each item needs a `text` field. The output adds `start`, `end`, and `confidence` fields where the audio provides a usable match.
+
+The current browser previews were generated from the Alfiyyah and al-ʿAqīdah al-Ṭaḥāwiyyah experiments. They remain local because the recordings and editions have separate redistribution terms.
+
+## Third-party components
+
+The reader code is MIT-licensed. The tested Zipformer model and its derived artifacts are under Quran-Lab NPL-1.2. That license permits free use and free hosting, requires derivatives to retain NPL-1.2, and prohibits charging for the model or a feature it powers. See `THIRD_PARTY_NOTICES.md`.
+
+## Sources used in the experiments
+
+- Tilawa: https://github.com/yazinsai/tilawa
+- Shamela Alfiyyah edition: https://shamela.ws/book/8522
+- Kutub al-ʿAqīdah edition: https://kutub.io/en/book/21523/1
+- IslamHouse Alfiyyah audio listing: https://islamhouse.com/ar/author/2794285
+

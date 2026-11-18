@@ -28,3 +28,7 @@ The current browser previews were generated from the Alfiyyah and al-ʿAqīdah a
 The reader code is MIT-licensed. The tested Zipformer model and its derived artifacts are under Quran-Lab NPL-1.2. That license permits free use and free hosting, requires derivatives to retain NPL-1.2, and prohibits charging for the model or a feature it powers. See `THIRD_PARTY_NOTICES.md`.
 
 
+
+## Proven generic Arabic alignment
+
+For non-Quran books, use the generic alignment layer exported under `scripts/`. It normalizes Arabic, aligns recognizer characters to the supplied canonical text with Levenshtein matching, reconstructs word start/end times, filters weak coverage, and emits reviewable timing JSON. Install its dependency with `python -m pip install -r requirements-align.txt`. The book-specific scripts are working exports from the Aqidah and Alfiyyah alignment runs; adapt their input paths for a new book such as Bulugh al-Maram.

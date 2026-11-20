@@ -43,3 +43,10 @@ Optional: `title_en`, `title_ar`, `work_dir` (use an existing folder instead of 
   `workers/hp-zip.mjs` is the Zipformer worker; copy it to `work/tilawa-legacy/hp-zip.mjs`.
 * Internet Archive keys: `HP_IA_ACCESS` / `HP_IA_SECRET` or `~/.hp-ia.ini` - never commit them.
 * Audio, model output and readers are written to `<repo root>/outputs/` and are not part of this repository.
+
+## Recognition models (FastConformer + Zipformer)
+
+Weights are not in this repo.
+- **FastConformer (words)**: ONNX in one folder (`model.onnx`, `vocab.json`, `QuranKarim-audio_features.py`); point `HP_FC_MODEL` at it. Runs in Python (`onnxruntime`), worker `hp/fc_worker.py`.
+- **Zipformer (sounds)**: `legacy.onnx`; point `HP_ZIP_MODEL` at it. Runs in Node: `cd workers && npm install`, worker `workers/hp-zip.mjs` (uses `@tilawa/core`, license NPL-1.2, see `THIRD_PARTY_NOTICES.md`).
+- Start both: `python -m hp run BOOK --stages asr` (or `python -m hp asr-all`). Several workers share a track through block lock files and are safe to stop and restart.

@@ -3,7 +3,7 @@ Resumable and idempotent: finished tracks (DONE) and finished 60 s blocks are sk
 Tracks are split across worker processes by audio length (longest first) so workers finish together."""
 import json, math, os, subprocess, sys, time
 from pathlib import Path
-from .common import Book, ROOT, COLLECTIONS, PY, NODE, PIPE, write_json, read_json, log
+from .common import Book, ROOT, ZIP_MODEL, COLLECTIONS, PY, NODE, PIPE, write_json, read_json, log
 
 
 def weights(book: Book):
@@ -49,13 +49,13 @@ def launch(book: Book, kind, workers, threads):
     for k, group in enumerate(groups):
         rest = [t for t in tracks if t not in group]          # then help with everyone else's tracks (block locks prevent overlap)
         order = group + rest
-        env = dict(os.environ, THREADS=str(threads), PYTHONIOENCODING='utf-8')
+        env = dict(os.environ, THREADS=str(threads), PYTHONIOENCODING='utf-8', HP_ZIP_MODEL=str(ZIP_MODEL))
         if kind == 'fc':
             cmd = [PY, '-m', 'hp.fc_worker', book.slug] + [str(t) for t in order]
             cwd = PIPE
         else:
-            cmd = [NODE, 'work/tilawa-legacy/hp-zip.mjs', str(files_json), str(book.zip), str(tmp)] + [str(t) for t in order]
-            cwd = ROOT
+            cmd = [NODE, str(PIPE / 'workers' / 'hp-zip.mjs'), str(files_json), str(book.zip), str(tmp)] + [str(t) for t in order]
+            cwd = PIPE / 'workers'
         out = open(logs / f'{kind}-{k}.log', 'ab')
         procs.append(subprocess.Popen(cmd, cwd=cwd, env=env, stdout=out, stderr=subprocess.STDOUT,
                                       creationflags=0x00000040 if os.name == 'nt' else 0))   # IDLE priority: your own apps stay smooth

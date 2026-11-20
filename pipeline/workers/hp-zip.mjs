@@ -1,10 +1,10 @@
 // Zipformer worker for the hadith pipeline.
-// usage (cwd = repo root): node work/tilawa-legacy/hp-zip.mjs FILES_JSON OUT_DIR TMP_DIR TRACK [TRACK ...]
+// usage (cwd = repo root): node pipeline/workers/hp-zip.mjs FILES_JSON OUT_DIR TMP_DIR TRACK [TRACK ...]
 // FILES_JSON = JSON array of absolute audio paths, track N = element N-1. Resumable per 60 s block; DONE marker per track.
 import { mkdir, writeFile, access, readFile, rm, rename, open, stat } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import * as ort from "onnxruntime-node";
-import { readWav } from "../tilawa-test/node_modules/@tilawa/core/dist/node.js";
+import { readWav } from "./node_modules/@tilawa/core/dist/node.js";
 import { ZipformerRunner } from "./node_modules/@tilawa/core/dist/recitation/zipformerRunner.js";
 import { KaldiFbank } from "./node_modules/@tilawa/core/dist/recitation/fbank.js";
 import { GreedyCtcDecoder } from "./node_modules/@tilawa/core/dist/recitation/ctcDecoder.js";
@@ -14,7 +14,7 @@ const FF = process.env.FFMPEG || "ffmpeg";
 const [filesJson, outDir, tmp, ...tr] = process.argv.slice(2);
 const files = JSON.parse(await readFile(filesJson, "utf8"));
 const exists = (p) => access(p).then(() => true, () => false);
-const session = await ort.InferenceSession.create("work/tilawa-test/legacy.onnx", {executionProviders:["cpu"], graphOptimizationLevel:"all", intraOpNumThreads:Number(process.env.THREADS||2), interOpNumThreads:1});
+const session = await ort.InferenceSession.create(process.env.HP_ZIP_MODEL || "legacy.onnx", {executionProviders:["cpu"], graphOptimizationLevel:"all", intraOpNumThreads:Number(process.env.THREADS||2), interOpNumThreads:1});
 const stamp = () => new Date().toTimeString().slice(0, 8);
 for (const t of tr.map(Number)) {
   const dir = `${outDir}/${String(t).padStart(2, "0")}`;

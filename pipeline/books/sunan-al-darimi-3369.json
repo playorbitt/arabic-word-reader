@@ -1,0 +1,17 @@
+{
+ "slug": "sunan-al-darimi-3369",
+ "collection": "sunan-al-darimi",
+ "title_ar": "سنن الدارمي",
+ "title_en": "Sunan Al Darimi",
+ "reciter": "يوسف بن نوح أحمد",
+ "source": "https://rawy.net/book/3369",
+ "audio_dir": "outputs/rawy-hadith-collections/sunan-al-darimi/rawy-3369",
+ "text": {},
+ "skip": true,
+ "note": "processed earlier with the original Darimi scripts",
+ "ia": {
+  "identifier": "DarimiAudiobook",
+  "hold": true,
+  "hold_note": "already uploaded by hand"
+ }
+}

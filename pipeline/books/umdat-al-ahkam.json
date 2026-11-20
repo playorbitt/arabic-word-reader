@@ -1,0 +1,32 @@
+{
+ "slug": "umdat-al-ahkam",
+ "collection": "umdat-al-ahkam",
+ "title_ar": "عمدة الأحكام",
+ "title_en": "Umdat al-Ahkam",
+ "reciter": "عمرو البساطي",
+ "source": "https://rawy.net/book/16401",
+ "audio_dir": "outputs/rawy-hadith-collections/umdat-al-ahkam/rawy-16401",
+ "text": {
+  "path": "outputs/hadith-pipeline/umdat-al-ahkam/source-text.json"
+ },
+ "text_note": "414 hadiths, fully voweled; supplied by user (hadith.json)",
+ "site": {
+  "slug": "umdat-al-ahkam",
+  "audio_base": "https://archive.org/download/umdat-al-ahkam-audio/"
+ },
+ "creator": "عبد الغني المقدسي",
+ "ia": {
+  "identifier": "umdat-al-ahkam-audio",
+  "creator": "عبد الغني المقدسي",
+  "subjects": [
+   "Arabic",
+   "Hadith",
+   "Audio",
+   "Umdat al-Ahkam",
+   "Abd al-Ghani al-Maqdisi",
+   "Fiqh"
+  ],
+  "description_en": "Arabic audio recording of <em>Umdat al-Ahkam</em> (عمدة الأحكام) by Imam Abd al-Ghani al-Maqdisi (d. 600 AH), a compact collection of 414 hadith from the two Sahih collections on the rulings of worship and daily life, read by Amr al-Basati. The recording is a single track of about 2 hours 50 minutes.",
+  "description_ar": "تسجيل صوتي لكتاب <strong>عمدة الأحكام</strong> للإمام عبد الغني المقدسي، بصوت عمرو البساطي."
+ }
+}

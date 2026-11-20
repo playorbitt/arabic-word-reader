@@ -1,0 +1,19 @@
+{
+ "slug": "al-shamail-al-muhammadiyyah",
+ "collection": "al-shamail-al-muhammadiyyah",
+ "title_ar": "الشمائل المحمدية",
+ "title_en": "Al Shamail Al Muhammadiyyah",
+ "reciter": null,
+ "source": "https://rawy.net/book/2665",
+ "audio_dir": "outputs/rawy-hadith-collections/al-shamail-al-muhammadiyyah/rawy-2665",
+ "text": {
+  "url": "https://hadithunlocked.com/shamail.json"
+ },
+ "skip": true,
+ "note": "already done elsewhere (user)",
+ "ia": {
+  "identifier": "20261119_20261119_1135",
+  "hold": true,
+  "hold_note": "already uploaded by hand"
+ }
+}

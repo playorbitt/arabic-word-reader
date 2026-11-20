@@ -32,3 +32,17 @@ The reader code is MIT-licensed. The tested Zipformer model and its derived arti
 ## Proven generic Arabic alignment
 
 For non-Quran books, use the generic alignment layer exported under `scripts/`. It normalizes Arabic, aligns recognizer characters to the supplied canonical text with Levenshtein matching, reconstructs word start/end times, filters weak coverage, and emits reviewable timing JSON. Install its dependency with `python -m pip install -r requirements-align.txt`. The book-specific scripts are working exports from the Aqidah and Alfiyyah alignment runs; adapt their input paths for a new book such as Bulugh al-Maram.
+
+
+## Full audio-to-reader pipeline (`pipeline/`)
+
+A resumable, book-by-book system for long recordings: audio check, text (hadithunlocked, Shamela, flat lists), FastConformer plus Zipformer recognition with shared block locks, anchor/fuzzy alignment, QA, a word-synced reader page, a hadith.to-style data export, an Internet Archive uploader (8-connection multipart), and a status dashboard.
+
+```powershell
+cd pipeline
+python -m hp list
+python -m hp run BOOK            # all stages for one book
+python -m hp status --html       # dashboard
+```
+
+Set `HP_ROOT` (workspace with `outputs/` and audio), `HP_FC_MODEL`, `HP_ZIP_MODEL`, `HP_PYTHON`, `FFMPEG` as needed. Internet Archive keys go in `HP_IA_ACCESS` / `HP_IA_SECRET` or `~/.hp-ia.ini`, never in the repo. See `pipeline/README.md`. No audio, models or book editions are included.

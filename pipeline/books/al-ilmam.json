@@ -1,0 +1,32 @@
+{
+ "slug": "al-ilmam",
+ "collection": "al-ilmam",
+ "title_ar": "الإلمام بأحاديث الأحكام",
+ "title_en": "Al-Ilmam bi-Ahadith al-Ahkam",
+ "reciter": null,
+ "source": "https://rawy.net/book/12105",
+ "audio_dir": "outputs/rawy-hadith-collections/al-ilmam/rawy-12105",
+ "text": {
+  "path": "outputs/hadith-pipeline/al-ilmam/source-text.json"
+ },
+ "shamela": {
+  "id": 5919
+ },
+ "creator": "ابن دقيق العيد",
+ "ia": {
+  "identifier": "al-ilmam-audio",
+  "creator": "ابن دقيق العيد",
+  "subjects": [
+   "Arabic",
+   "Hadith",
+   "Audio",
+   "Al-Ilmam bi-Ahadith al-Ahkam",
+   "Ibn Daqiq al-Eid",
+   "Fiqh"
+  ],
+  "description_en": "Arabic audio recording of <em>al-Ilmam bi-Ahadith al-Ahkam</em> (الإلمام بأحاديث الأحكام) by Imam Taqi al-Din Ibn Daqiq al-'Id (d. 702 AH), a collection of hadith on legal rulings arranged by the chapters of fiqh.",
+  "description_ar": "تسجيل صوتي لكتاب <strong>الإلمام بأحاديث الأحكام</strong> للإمام تقي الدين ابن دقيق العيد."
+ },
+ "audio_glob": "001-*.mp3",
+ "audio_note": "only the full 9.5 h recording; 002 (video excerpt) and 003 (audio excerpt) are short samples of it"
+}

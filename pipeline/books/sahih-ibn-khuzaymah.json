@@ -1,0 +1,22 @@
+{
+ "slug": "sahih-ibn-khuzaymah",
+ "collection": "sahih-ibn-khuzaymah",
+ "title_ar": "صحيح ابن خزيمة",
+ "title_en": "Sahih Ibn Khuzaymah",
+ "reciter": null,
+ "source": "https://rawy.net/book/10028",
+ "audio_dir": "outputs/rawy-hadith-collections/sahih-ibn-khuzaymah/rawy-10028",
+ "text": {
+  "path": "outputs/khuzayma-text/ibnkhuzaymah.json"
+ },
+ "work_dir": "outputs/khuzayma-text",
+ "ia": {
+  "identifier": "sahih-ibn-khuzaymah-audio",
+  "hold": true,
+  "hold_note": "being uploaded by hand"
+ },
+ "site": {
+  "slug": "sahih-ibn-khuzaymah",
+  "audio_base": "/rawy-hadith-collections/sahih-ibn-khuzaymah/rawy-10028/"
+ }
+}

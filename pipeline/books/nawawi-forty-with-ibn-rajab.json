@@ -1,0 +1,14 @@
+{
+ "slug": "nawawi-forty-with-ibn-rajab",
+ "collection": "nawawi-forty-with-ibn-rajab",
+ "title_ar": "الأربعون النووية مع زيادة ابن رجب",
+ "title_en": "Nawawi Forty With Ibn Rajab",
+ "reciter": "أحمد النفيس",
+ "source": "https://rawy.net/book/1928",
+ "audio_dir": "outputs/rawy-hadith-collections/nawawi-forty-with-ibn-rajab/rawy-1928",
+ "text": {
+  "url": "https://hadithunlocked.com/ibnrajab50.json"
+ },
+ "skip": true,
+ "note": "already done on hadith.to (Nawawi's Forty); audio test run kept"
+}

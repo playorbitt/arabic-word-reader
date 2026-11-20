@@ -10,3 +10,12 @@ local-data/
 .env.*
 !.env.example
 
+__pycache__/
+*.pyc
+*.tmp
+*.lock
+tmp/
+.env
+*.ini
+.hp-ia.ini
+*.log

@@ -1,1 +1,12 @@
-{"slug": "jami-al-sunnah", "collection": "jami-al-sunnah", "title_ar": "جامع السنة", "title_en": "Jami Al Sunnah", "reciter": null, "source": "https://rawy.net/book/17549", "audio_dir": "outputs/rawy-hadith-collections/jami-al-sunnah/rawy-17549", "text": {}}
+{
+ "slug": "jami-al-sunnah",
+ "collection": "jami-al-sunnah",
+ "title_ar": "جامع السنة",
+ "title_en": "Jami Al Sunnah",
+ "reciter": null,
+ "source": "https://rawy.net/book/17549",
+ "audio_dir": "outputs/rawy-hadith-collections/jami-al-sunnah/rawy-17549",
+ "text": {},
+ "skip": true,
+ "note": "skipped - user said not to process"
+}

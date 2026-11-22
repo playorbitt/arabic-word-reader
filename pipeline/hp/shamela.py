@@ -60,6 +60,7 @@ def clean(raw_html, slash=True):
     t = re.sub(r'<a [^>]*btn_tag[^>]*>.*?</a>', '', raw_html, flags=re.S)
     t = re.sub(r'<span[^>]*class="anchor"[^>]*></span>', '', t)
     t = html.unescape(re.sub(r'<[^>]+>', '', t))
+    t = re.sub(r'\s*⦗[^⦘]*⦘\s*', ' ', t)                       # Shamela page-number marker ⦗٦⦘ inside the text
     def br(m):
         inner = m.group(1).strip()
         return 'ﷺ' if fold(inner) == 'صلياللهعليهوسلم' else inner
@@ -113,8 +114,43 @@ def parse(book: Book):
     return out
 
 
+def parse_plain(book: Book):
+    """Layout B (e.g. Bulugh al-Maram, ed. al-Zuhayri): a hadith is a paragraph "N - text"; headings are unnumbered short
+    paragraphs starting with كتاب / باب; footnotes (takhrij) follow an <hr> in <p class="hamesh"> and are dropped."""
+    files = sorted((book.dir / 'shamela-pages').glob('[0-9][0-9][0-9][0-9].json'))
+    items = []; kitab = 'المقدمة'; bab = ''; cur = None
+    for f in files:
+        d = json.loads(f.read_text(encoding='utf8'))
+        if d['id'] == 1: continue
+        main = d['html'].split('<hr>')[0]
+        for para in re.findall(r'<p>(.*?)</p>', main, re.S):
+            t = clean(para)
+            t = re.sub(r'\s*\([\d٠-٩]+\)\s*', ' ', t).strip()          # footnote markers (١)
+            if not t: continue
+            m = re.match(r'^([\d٠-٩]+)(?:\s*و\s*([\d٠-٩]+))?\s*[-–]\s*(.+)$', t, re.S)     # "189 و 190 -" = one text for two numbers
+            if m:
+                nid = int(m.group(1).translate(AR_DIGITS)); body = re.sub(r'^\(\s*[أ-ي]\s*\)\s*', '', m.group(3).strip())
+                m2 = re.match(r'^و\s*([\d٠-٩]+)\s*[-–]\s*(.+)$', body, re.S)                   # "189 - و 190 - text": one text, two numbers
+                if m2: body = m2.group(2).strip(); m = type('M', (), {'group': lambda self, i, v=m2.group(1): v if i == 2 else None})()
+                if items and items[-1]['id'] == nid:                       # a variant wording (أ)/(ب) of the same hadith: keep with it
+                    items[-1]['content'] += ' ' + body; cur = items[-1]; continue
+                cur = {'id': nid, 'kitab_name': kitab, 'bab_name': bab, 'rawi': '', 'content': body, 'page': d['num'], 'part': d['part']}
+                if m.group(2): cur['also_number'] = int(m.group(2).translate(AR_DIGITS))
+                items.append(cur); continue
+            fl = fold(t)
+            if len(t.split()) <= 14 and fl.startswith('كتاب'): kitab, bab, cur = t, '', None
+            elif len(t.split()) <= 14 and fl.startswith('باب'): bab, cur = t, None
+            elif cur is not None: cur['content'] = (cur['content'] + ' ' + t).strip()      # a hadith continued over a page break
+    for x in items: x['hint'] = ' '.join(x['content'].split()[:6])
+    write_json(book.path('source-text.json'), items)
+    nums = [x['id'] for x in items]
+    gaps = [n for n in range(min(nums), max(nums) + 1) if n not in set(nums)]
+    log(f'{book.slug}: source-text.json - {len(items)} hadith from {len(files)} pages; numbers {min(nums)}..{max(nums)}; missing {gaps[:15]}; repeated {len(nums) - len(set(nums))}')
+    return items
+
+
 def run(book: Book, sid=None, limit=None, delay=0.35):
     sid = sid or (book.cfg.get('shamela') or {}).get('id')
     if not sid: raise SystemExit(f'{book.slug}: give --id or set "shamela": {{"id": N}} in the book config')
     fetch_pages(book, sid, limit, delay)
-    return parse(book)
+    return parse_plain(book) if (book.cfg.get('shamela') or {}).get('layout') == 'plain' else parse(book)

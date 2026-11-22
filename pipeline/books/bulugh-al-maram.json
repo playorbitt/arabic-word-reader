@@ -1,1 +1,31 @@
-{"slug": "bulugh-al-maram", "collection": "bulugh-al-maram", "title_ar": "بلوغ المرام من أدلة الأحكام", "title_en": "Bulugh Al Maram", "reciter": "راشد الحليبة", "source": "https://rawy.net/book/17561", "audio_dir": "outputs/rawy-hadith-collections/bulugh-al-maram/rawy-17561", "text": {}}
+{
+ "slug": "bulugh-al-maram",
+ "collection": "bulugh-al-maram",
+ "title_ar": "بلوغ المرام من أدلة الأحكام",
+ "title_en": "Bulugh Al Maram",
+ "reciter": "راشد الحليبة",
+ "source": "https://rawy.net/book/17561",
+ "audio_dir": "outputs/rawy-hadith-collections/bulugh-al-maram/rawy-17561",
+ "text": {
+  "path": "outputs/hadith-pipeline/bulugh-al-maram/source-text.json"
+ },
+ "shamela": {
+  "id": 9111,
+  "layout": "plain"
+ },
+ "creator": "ابن حجر العسقلاني",
+ "ia": {
+  "identifier": "bulugh-al-maram-audio",
+  "creator": "ابن حجر العسقلاني",
+  "subjects": [
+   "Arabic",
+   "Hadith",
+   "Audio",
+   "Bulugh al-Maram",
+   "Ibn Hajar al-Asqalani",
+   "Fiqh"
+  ],
+  "description_en": "Arabic audio recording of <em>Bulugh al-Maram min Adillat al-Ahkam</em> (بلوغ المرام من أدلة الأحكام) by Hafiz Ibn Hajar al-Asqalani (d. 852 AH), a concise collection of the hadith evidence for rulings of fiqh. Recitation: Rashid al-Halibah.",
+  "description_ar": "تسجيل صوتي لكتاب <strong>بلوغ المرام من أدلة الأحكام</strong> للحافظ ابن حجر العسقلاني."
+ }
+}

@@ -1,1 +1,33 @@
-{"slug": "al-lulu-wal-marjan", "collection": "al-lulu-wal-marjan", "title_ar": "اللؤلؤ والمرجان فيما اتفق عليه الشيخان", "title_en": "Al Lulu Wal Marjan", "reciter": null, "source": "https://rawy.net/book/17059", "audio_dir": "outputs/rawy-hadith-collections/al-lulu-wal-marjan/rawy-17059", "text": {"url": "https://hadithunlocked.com/lulu-marjan.json"}}
+{
+ "slug": "al-lulu-wal-marjan",
+ "collection": "al-lulu-wal-marjan",
+ "title_ar": "اللؤلؤ والمرجان فيما اتفق عليه الشيخان",
+ "title_en": "Al Lulu Wal Marjan",
+ "reciter": null,
+ "source": "https://rawy.net/book/17059",
+ "audio_dir": "outputs/rawy-hadith-collections/al-lulu-wal-marjan/rawy-17059",
+ "text": {
+  "path": "outputs/hadith-pipeline/al-lulu-wal-marjan/second-edition/source-text.json",
+  "note": "Shamela 10619 (Fuad Abd al-Baqi); replaces hadithunlocked, which carries Bukhari chains the recording does not read"
+ },
+ "shamela": {
+  "id": 10619,
+  "layout": "plain"
+ },
+ "creator": "محمد فؤاد عبد الباقي",
+ "ia": {
+  "identifier": "al-lulu-wal-marjan-audio",
+  "creator": "محمد فؤاد عبد الباقي",
+  "subjects": [
+   "Arabic",
+   "Hadith",
+   "Audio",
+   "Al-Lulu wal-Marjan",
+   "Muhammad Fuad Abd al-Baqi",
+   "Bukhari",
+   "Muslim"
+  ],
+  "description_en": "Arabic audio recording of <em>al-Lu'lu' wal-Marjan fima Ittafaqa alayhi al-Shaykhan</em> (اللؤلؤ والمرجان فيما اتفق عليه الشيخان), compiled by Muhammad Fuad Abd al-Baqi: the hadith agreed upon by Imam al-Bukhari and Imam Muslim, 1,906 hadith.",
+  "description_ar": "تسجيل صوتي لكتاب <strong>اللؤلؤ والمرجان فيما اتفق عليه الشيخان</strong> لمحمد فؤاد عبد الباقي."
+ }
+}

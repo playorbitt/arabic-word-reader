@@ -1,4 +1,4 @@
-# Arabic Word-Sync Reader
+﻿# Arabic Word-Sync Reader
 
 An offline-first reader that aligns a recorded Arabic reading with a supplied Arabic text and highlights the text word by word during playback.
 
@@ -36,13 +36,10 @@ For non-Quran books, use the generic alignment layer exported under `scripts/`. 
 
 ## Full audio-to-reader pipeline (`pipeline/`)
 
-A resumable, book-by-book system for long recordings: audio check, text (hadithunlocked, Shamela, flat lists), FastConformer plus Zipformer recognition with shared block locks, anchor/fuzzy alignment, QA, a word-synced reader page, a hadith.to-style data export, an Internet Archive uploader (8-connection multipart), and a status dashboard.
+A resumable, book-by-book system that turns a long recording plus its printed text into a word-synced reader and a hadith.to-style package: audio check, text (hadithunlocked, Shamela), **FastConformer** (words) + **Zipformer** (sounds) recognition with shared block locks, anchor/fuzzy alignment, QA, reader page, Internet Archive upload (8-connection multipart), site export and a status dashboard.
 
-```powershell
-cd pipeline
-python -m hp list
-python -m hp run BOOK            # all stages for one book
-python -m hp status --html       # dashboard
-```
+- **Full steps and lessons:** [`pipeline/docs/HOW-IT-WORKS.md`](pipeline/docs/HOW-IT-WORKS.md)
+- **Release zip:** `releases/hadith-pipeline-v1.0.zip` (same files as `pipeline/`), tag `v1.0`
+- **Verify a book's text** against a second edition: `python pipeline/tools/compare_editions.py BOOK SHAMELA_ID`
 
-Set `HP_ROOT` (workspace with `outputs/` and audio), `HP_FC_MODEL`, `HP_ZIP_MODEL`, `HP_PYTHON`, `FFMPEG` as needed. Internet Archive keys go in `HP_IA_ACCESS` / `HP_IA_SECRET` or `~/.hp-ia.ini`, never in the repo. See `pipeline/README.md`. No audio, models or book editions are included.
+Model weights, audio, book texts and Internet Archive keys are not included. Keys go in `HP_IA_ACCESS` / `HP_IA_SECRET` or `~/.hp-ia.ini`.
